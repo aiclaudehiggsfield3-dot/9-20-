@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>비가 그치기 전까지</title>
+<meta name="description" content="세상의 풍파에 지친 한 사람이 빗속 반사면마다 떠오르는 괴로운 기억에 흔들리다, 낯선 이가 건넨 우산 아래에서 좋은 기억을 만나 다시 살아갈 힘을 얻는다.">
+<meta name="color-scheme" content="dark">
+<style>
+:root{--bg:#0b1317;--surface:#111d23;--line:#25373f;--text:#dde8ec;--muted:#93a8b0;--amber:#e3a95c;--teal:#66b0ae;
+  --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.7}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+header{padding:72px 0 40px}
+h1{font-size:clamp(34px,7vw,56px);line-height:1.2;margin:0 0 4px}
+.en{color:var(--muted);font-style:italic;margin:0 0 28px}
+.logline{font-size:clamp(19px,3.2vw,26px);line-height:1.6;border-left:2px solid var(--amber);padding-left:18px;margin:0}
+nav{display:flex;gap:16px;flex-wrap:wrap;margin:28px 0 0;font-size:15px}
+nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--amber)}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-size:26px;margin:0 0 16px}
+h3{font-size:17px;margin:0}
+.muted{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 20px;list-style:none}
+.chips li{border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:15px}
+dl{margin:0;display:grid;grid-template-columns:70px 1fr;font-size:15px}
+dt,dd{margin:0;padding:10px 0;border-top:1px solid var(--line)}dt{color:var(--teal);font-weight:700}
+.next{font-size:20px;margin:0 0 16px}
+.ms{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.mcard{min-width:0;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:16px}
+.mcard.now{border-color:var(--amber)}
+.top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.dday{font-family:var(--mono);font-size:13px;color:var(--amber);white-space:nowrap}
+.bar{height:6px;border-radius:9px;background:#16252c;margin:10px 0 4px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--amber))}
+.cnt{font-size:13px;color:var(--muted)}
+.reqs{list-style:none;margin:10px 0 0;padding:0;font-size:14px}
+.reqs li{padding:3px 0;color:var(--muted);overflow-wrap:anywhere;display:flex;gap:8px;align-items:flex-start}.reqs li.ok{color:var(--amber)}
+.reqs input{margin-top:6px;accent-color:var(--amber);flex:none}
+.reqs .extra{font-size:12px;color:var(--teal);white-space:nowrap;margin-left:auto}
+.admin{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:12px 16px;margin:0 0 16px}
+.admin summary{cursor:pointer;color:var(--teal)}
+.admin form,.admin .row{display:grid;gap:10px;margin-top:12px}
+.admin .inline{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input[type=text],input[type=password],input[type=date],select,textarea{font:inherit;font-size:15px;background:#0a1114;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%;min-width:0}
+textarea{resize:vertical}
+.tk{display:grid;grid-template-columns:auto 1fr;gap:6px 8px;align-items:center;border-top:1px solid var(--line);padding:8px 0}
+.tk .sub{grid-column:2;display:flex;gap:8px}.tk .sub select,.tk .sub input{width:auto;flex:1}
+.msg{font-size:14px;min-height:1.4em}.msg.err{color:#d9968a}.msg.ok{color:var(--teal)}
+button.primary{border-color:var(--amber);color:var(--amber)}button:disabled{opacity:.5;cursor:default}
+.meet{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:14px 16px;margin:0 0 10px}
+.meet .d{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.meet ul{margin:4px 0 0;padding-left:20px;font-size:15px}
+.kind{font-size:12px;color:var(--teal);border:1px solid var(--line);border-radius:6px;padding:0 8px;margin-left:8px;font-weight:400}
+.shot{border-top:1px solid var(--line);padding:12px 0}
+.shot summary{cursor:pointer;display:flex;gap:10px;flex-wrap:wrap;align-items:baseline}
+.shot .no{font-family:var(--mono);color:var(--amber)}
+.shot .tag{font-size:12px;color:var(--teal);border:1px solid var(--line);border-radius:6px;padding:0 8px}
+.shot .st{font-size:12px;color:var(--amber)}
+.shot p{margin:8px 0 0;font-size:15px}
+pre{white-space:pre-wrap;word-break:break-word;font-family:var(--mono);font-size:12.5px;line-height:1.6;background:#0a1114;border:1px solid var(--line);border-radius:8px;padding:12px;margin:10px 0}
+button{font:inherit;font-size:14px;cursor:pointer;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:4px 12px}
+button:hover{border-color:var(--amber)}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:8px;border-top:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:500}
+.scroll{overflow-x:auto}
+.empty{border:1px dashed var(--line);border-radius:12px;padding:16px;color:var(--muted)}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}
+.day{border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--surface);min-height:80px;font-size:13px;color:var(--muted)}
+.day b{display:block;font-family:var(--mono);font-size:12px;margin-bottom:4px}
+.day.done{border-color:var(--amber);color:var(--text)}.day a{color:var(--teal)}
+footer{padding:32px 0 56px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+@media (max-width:560px){body{font-size:16px}header{padding:48px 0 28px}dl{grid-template-columns:1fr}dt{border-bottom:0;padding-bottom:0}dd{border-top:0;padding-top:2px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>비가 그치기 전까지</h1>
+  <p class="en">Until the Rain Stops</p>
+  <p class="logline">세상의 풍파에 지친 한 사람이 빗속 반사면마다 떠오르는 괴로운 기억에 흔들리다, 낯선 이가 건넨 우산 아래에서 좋은 기억을 만나 다시 살아갈 힘을 얻는다.</p>
+  <nav><a href="#check">체크리스트</a><a href="#meet">회의 기록</a><a href="#world">세계관</a><a href="#shots">샷 리스트·프롬프트</a><a href="#fail">실패와 수정</a><a href="#days">30 Days</a></nav>
+</header>
+
+<section id="check"><h2>중간발표까지 체크리스트</h2>
+  <p class="next" id="nextUp"></p><div class="ms" id="ms"></div></section>
+
+<section id="meet"><h2>회의 기록</h2>
+  <p class="muted" id="conn"></p>
+  <details class="admin" id="admin" hidden><summary>회의록 작성하기 (비밀번호 필요)</summary>
+    <div class="row" id="lock"><div class="inline"><input type="password" id="pw" placeholder="비밀번호" autocomplete="current-password" style="max-width:220px"><label class="muted"><input type="checkbox" id="remember"> 이 기기에서 기억</label><button type="button" id="unlock">확인</button></div></div>
+    <form id="mform" hidden onsubmit="return false">
+      <input type="text" id="mTitle" placeholder="회의 제목" maxlength="120">
+      <div class="inline"><input type="date" id="mDate" style="max-width:180px"><select id="mKind" style="max-width:200px"><option>기획 회의</option><option>사전발표 크리틱</option><option>면담</option><option>기타</option></select><label class="muted"><input type="checkbox" id="mPublic" checked> 사이트에 공개</label></div>
+      <textarea id="mText" rows="8" placeholder="회의 내용을 그대로 적어 주세요. 말한 순서대로 아무렇게나 적어도 돼요."></textarea>
+      <div class="inline"><button type="button" class="primary" id="btnAI">AI로 정리</button><button type="button" id="btnSave0">AI 없이 저장</button></div>
+      <div id="prev" hidden>
+        <p class="muted">AI가 정리한 내용이에요. 고치거나 빼고 저장하세요. 체크리스트 항목은 회의를 비공개로 해도 사이트에 보여요.</p>
+        <textarea id="pSummary" rows="3"></textarea>
+        <textarea id="pDecisions" rows="4" placeholder="결정 사항(한 줄에 하나)"></textarea>
+        <div id="pTasks"></div>
+        <div class="inline"><button type="button" class="primary" id="btnSave">노션에 저장</button></div>
+      </div>
+      <div class="msg" id="msg" role="status" aria-live="polite"></div>
+    </form>
+  </details>
+  <div id="meetings"></div></section>
+
+<section id="world"><h2>세계관</h2>
+  <ul class="chips" id="keywords"></ul><dl id="rules"></dl></section>
+
+<section id="shots"><h2>샷 리스트·프롬프트</h2>
+  <p class="muted">12컷 × 약 5초. 카드를 펼치면 프롬프트가 나오고, 고정 문구(LOCK)는 모든 샷에 그대로 들어간다.</p>
+  <div id="cards"></div>
+  <details class="shot"><summary><b>고정 문구 (LOCK)</b></summary><div id="locks"></div></details></section>
+
+<section id="fail"><h2>실패와 수정</h2><div id="logBox"></div></section>
+
+<section id="days"><h2>30 Days Project</h2><p class="muted" id="count"></p><div class="days" id="daysGrid"></div></section>
+</div>
+<footer><div class="wrap">FTM2082-01 · AI 기반 영상 제작 워크샵</div></footer>
+
+<script src="config.js"></script>
+<script src="data/milestones.js"></script>
+<script src="data/tracker.js"></script>
+<script>
+const DATA = {"meta": {"title_ko": "비가 그치기 전까지", "title_en": "Until the Rain Stops", "theme": "치유", "seed": "빗소리", "logline": "세상의 풍파에 지친 한 사람이 빗속 반사면마다 떠오르는 괴로운 기억에 흔들리다, 낯선 이가 건넨 우산 아래에서 좋은 기억을 만나 다시 살아갈 힘을 얻는다.", "logline_alts": ["낯선 이의 우산 하나가, 젖은 유리 속 기억의 색을 바꿔 놓는다.", "비는 그대로인데, 우산 아래에서는 기억이 따뜻해진다."], "runtime": "약 1분 (12컷 × 약 5초)", "why": "치유를 혼자 이겨내는 일이 아니라, 누군가 건넨 작은 온기로 기억의 색이 바뀌는 일로 본다. 웅덩이와 쇼윈도에 비친 기억은 같은 자리에 있지만, 우산을 받은 뒤에는 같은 자리가 따뜻하게 읽힌다."}, "keywords": ["빗소리", "반사된 기억", "우산의 온기", "같은 자리 다른 색", "손에서 손으로"], "rules": [["색", "색이 곧 시간이다. 현재는 청회색·딥틸의 차가운 밤, 괴로운 기억은 탈색된 차가운 녹회색, 좋은 기억은 호박·금빛. 우산은 현재에 처음 들어온 온기이므로 호박빛 우산 하나만 따뜻한 색을 갖는다."], ["형태", "웅덩이·쇼윈도 같은 반사면이 '화면 속 화면'이다. 같은 반사면이 두 번 나온다: 웅덩이 3번→10번, 쇼윈도 5번→11번. 같은 자리, 다른 색. 화면을 가르는 수직의 빗줄기."], ["손", "온기는 손에서 손으로 전해진다. 우산을 건네는 손(8번)과 그릇을 건네는 손(10번)은 같은 구도로 찍는다."], ["질감", "젖은 아스팔트, 물방울 맺힌 유리, 가로등의 빛무리, 필름 그레인이 있는 실사 톤."], ["움직임", "카메라는 모두 걸음 속도로 느리고 의도적으로. 급한 컷, 핸드헬드 흔들림, 빠른 줌은 쓰지 않는다."], ["인물", "익명의 성인 한 명. 어두운 회색 레인코트와 후드. 뒷모습·실루엣·손·발로만 보인다. 우산을 건네는 낯선 이와 기억 속 사람들도 손과 그림자로만 나온다. 정면 얼굴은 없다(관객이 자신을 투영하도록, 그리고 AI 얼굴 일관성 문제를 피하려고)."], ["소리", "빗소리가 주인공. 넓은 거리의 빗소리 → 굵고 무거운 거센 비 → 우산 위에서 낮고 둥글게 바뀐 빗소리(세상이 조용해진다) → 기억 장면에서는 빗소리가 멀어지고 부드러운 생활음 → 비가 그친다. 대사 없음."], ["금지", "자막·글자·읽을 수 있는 간판·로고, 번개·폭풍, 눈부신 흰 빛, 정면 얼굴 클로즈업, 우는 얼굴 같은 눈물 클리셰."]], "arc": [["짓눌림", "지친 채 걷는다", "0:00–0:10", 17], ["괴로운 기억", "반사면마다 아픈 기억이 스치고 비가 거세진다", "0:10–0:30", 33], ["우산", "낯선 이가 우산을 건넨다", "0:30–0:45", 25], ["좋은 기억", "같은 자리에 온기가 돌아오고 비가 그친다", "0:45–1:00", 25]], "palettes": [["PRESENT", "현재", "차가운 밤거리", "청회색·딥틸", ["#1a2a31", "#2f5c66"], "#dde8ec"], ["PAIN", "괴로운 기억", "차갑게 탈색된 반사", "녹회색, 일그러진 파문", ["#26302e", "#4a5a52"], "#dde8ec"], ["GIFT", "우산", "현재에 들어온 첫 온기", "청회색 위 호박빛 우산 하나", ["#2f5c66", "#c98a3c"], "#0b1317"], ["MEMORY", "좋은 기억", "같은 자리의 온기", "호박·금빛, 안정된 초점", ["#c98a3c", "#f0d7a8"], "#24170a"], ["TURN", "전환", "비가 그침", "호박 창과 옅은 새벽빛", ["#2f5c66", "#e3a95c"], "#0b1317"]], "shots": [{"no": 1, "time": "0:00–0:05", "mode": "T2V", "move": "Dolly in", "size": "Wide (원경)", "pal": "PRESENT", "title": "젖은 거리", "space_ko": "밤의 빈 거리. 젖은 아스팔트, 가로등의 빛무리. 멀리 걸어가는 아주 작은 인물(뒷모습).", "light_ko": "차가운 청록 주변광. 가로등 빛이 젖은 길 위로 번진다.", "char_ko": "멀리 작게 보이는 뒷모습.", "action_ko": "빗줄기가 가로등 빛 속에서 떨어지고, 인물이 천천히 멀어진다. 카메라가 아주 느리게 앞으로 나아간다.", "emotion": "지침, 무게", "sound": "아스팔트 위로 넓게 깔리는 빗소리", "edit_ko": "", "camera_en": "Wide shot, very slow dolly-in down the empty street", "space_en": "An empty night street in the rain, wet asphalt, soft halos around streetlights, shopfronts blurred without any signage", "light_en": "Cold blue-teal ambient light, streetlight glow spreading across the wet road", "char_en": "CHARACTER_FAR", "action_en": "Rain falls through the lamplight as the tiny figure slowly walks away", "prompt": "[CAMERA] Wide shot, very slow dolly-in down the empty street.\n[SPACE] An empty night street in the rain, wet asphalt, soft halos around streetlights, shopfronts blurred without any signage.\n[LIGHT] Cold blue-teal ambient light, streetlight glow spreading across the wet road.\n[CHARACTER] A tiny distant figure in a long charcoal-gray raincoat with the hood up, seen from behind. The face is never visible.\n[ACTION] Rain falls through the lamplight as the tiny figure slowly walks away.\n[PALETTE] Muted blue-gray and deep teal night palette, wet asphalt, soft halos around streetlights.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "현재"}, {"no": 2, "time": "0:05–0:10", "mode": "I2V", "move": "Tracking (follow)", "size": "Medium", "pal": "PRESENT", "title": "무거운 어깨", "space_ko": "같은 거리. 빗줄기와 젖은 보도.", "light_ko": "인물 앞쪽 멀리서 오는 가로등 약한 역광. 코트에 맺힌 물방울이 빛난다.", "char_ko": "후드를 쓴 뒷모습.", "action_ko": "어깨가 처진 채 느리게 걷는다. 카메라가 뒤에서 걸음 속도로 따라간다.", "emotion": "짓눌림", "sound": "빗소리 + 젖은 발소리", "edit_ko": "", "camera_en": "Medium shot from behind, slow tracking shot following at walking pace", "space_en": "The same wet night street, rain streaks, wet pavement, blurred shopfronts", "light_en": "Faint backlight from streetlights ahead, water beads on the coat catching the glow", "char_en": "CHARACTER", "action_en": "The person walks slowly with slumped shoulders", "prompt": "[CAMERA] Medium shot from behind, slow tracking shot following at walking pace.\n[SPACE] The same wet night street, rain streaks, wet pavement, blurred shopfronts.\n[LIGHT] Faint backlight from streetlights ahead, water beads on the coat catching the glow.\n[CHARACTER] An anonymous adult in a long charcoal-gray raincoat with the hood up and dark wet hair, shown only from behind, in silhouette, or as hands and feet. The face is never visible.\n[ACTION] The person walks slowly with slumped shoulders.\n[PALETTE] Muted blue-gray and deep teal night palette, wet asphalt, soft halos around streetlights.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "현재"}, {"no": 3, "time": "0:10–0:15", "mode": "T2V", "move": "Tilt down", "size": "Close-up (웅덩이)", "pal": "PAIN", "title": "웅덩이 속 기억 ① 야근", "space_ko": "젖은 보도의 웅덩이. 그 반사면 속에 한밤의 사무실: 깜빡이는 형광등, 꺼지지 않은 모니터, 쌓인 서류, 벽시계(사람 없음).", "light_ko": "차갑고 탈색된 형광등빛. 파문이 반사를 일그러뜨린다.", "char_ko": "없음(코트 밑단이 프레임 가장자리에 스친다).", "action_ko": "카메라가 보도에서 웅덩이로 내려가면 반사 속 사무실이 파문에 일그러진다. 발이 스치자 반사가 흩어진다.", "emotion": "지친 기억이 스침", "sound": "빗소리가 좁아지고 형광등 웅웅거림", "edit_ko": "웅덩이 반사가 잘 안 나오면 사무실 장면을 따로 생성해 웅덩이 위에 스크린 블렌드로 겹치고, 파문을 얹는다.", "camera_en": "Close-up, slow tilt down from the sidewalk into the puddle, reflection filling the frame", "space_en": "A puddle on a wet sidewalk at night whose reflection shows a night office: flickering fluorescent lights, an unattended glowing monitor, stacks of papers, a wall clock, no people", "light_en": "Cold flickering fluorescent light in the reflection, ripples bending it", "char_en": "", "action_en": "A dripping raindrop ripples the reflection, then a passing shoe scatters it", "prompt": "[CAMERA] Close-up, slow tilt down from the sidewalk into the puddle, reflection filling the frame.\n[SPACE] A puddle on a wet sidewalk at night whose reflection shows a night office: flickering fluorescent lights, an unattended glowing monitor, stacks of papers, a wall clock, no people.\n[LIGHT] Cold flickering fluorescent light in the reflection, ripples bending it.\n[ACTION] A dripping raindrop ripples the reflection, then a passing shoe scatters it.\n[PALETTE] Cold desaturated gray-green and blue palette with a faint flickering fluorescent tint, the reflection distorted and fragmented by ripples and raindrops, unstable and slightly harsh.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "괴로운 기억"}, {"no": 4, "time": "0:15–0:20", "mode": "I2V", "move": "Rack focus", "size": "Close-up (손)", "pal": "PRESENT", "title": "움켜쥔 손", "space_ko": "빗속 보도. 코트 앞섶.", "light_ko": "가로등의 차가운 빛, 젖은 코트 위의 물방울.", "char_ko": "코트 앞섶을 움켜쥔 손만 보인다.", "action_ko": "손이 코트를 더 세게 움켜쥔다. 초점이 손에서 흐릿한 쇼윈도 쪽으로 옮겨 간다.", "emotion": "고통", "sound": "빗소리 + 낮은 숨소리", "edit_ko": "", "camera_en": "Close-up, slow rack focus from the hand to the blurred storefront glass behind", "space_en": "A rainy sidewalk at night, a dark storefront window softly blurred in the background", "light_en": "Cold streetlight, water beads on the wet coat", "char_en": "HANDS_CLENCH", "action_en": "The hand tightens on the coat as focus drifts to the window behind", "prompt": "[CAMERA] Close-up, slow rack focus from the hand to the blurred storefront glass behind.\n[SPACE] A rainy sidewalk at night, a dark storefront window softly blurred in the background.\n[LIGHT] Cold streetlight, water beads on the wet coat.\n[CHARACTER] Only a bare hand emerging from the sleeve of a charcoal-gray raincoat is visible, gripping the coat edge tightly. No face.\n[ACTION] The hand tightens on the coat as focus drifts to the window behind.\n[PALETTE] Muted blue-gray and deep teal night palette, wet asphalt, soft halos around streetlights.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "현재"}, {"no": 5, "time": "0:20–0:25", "mode": "T2V", "move": "Lateral tracking", "size": "Medium (쇼윈도)", "pal": "PAIN", "title": "쇼윈도 속 기억 ② 빈 식탁", "space_ko": "불 꺼진 쇼윈도(글자 없음)의 유리 속에 작은 부엌 식탁. 그릇 두 개가 식은 채 놓여 있고 의자 하나가 비어 있다.", "light_ko": "차갑고 탈색된 빛, 유리 위의 물방울이 반사를 갈라놓는다.", "char_ko": "없음.", "action_ko": "카메라가 쇼윈도를 따라 옆으로 이동하면 유리 속 식탁이 빗물에 갈라져 흐른다.", "emotion": "외로움", "sound": "빗소리 + 멀어지는 울림", "edit_ko": "10번 샷과 같은 식탁·같은 구도로 찍는다(차갑고 비어 있음 → 따뜻하고 채워짐).", "camera_en": "Medium shot, slow lateral tracking along a dark storefront window", "space_en": "A dark storefront glass with no lettering whose reflection shows a small kitchen table with two untouched cold bowls and one empty chair", "light_en": "Cold desaturated light, raindrops on the glass breaking up the reflection", "char_en": "", "action_en": "Water streams down the glass and splits the image of the empty table", "prompt": "[CAMERA] Medium shot, slow lateral tracking along a dark storefront window.\n[SPACE] A dark storefront glass with no lettering whose reflection shows a small kitchen table with two untouched cold bowls and one empty chair.\n[LIGHT] Cold desaturated light, raindrops on the glass breaking up the reflection.\n[ACTION] Water streams down the glass and splits the image of the empty table.\n[PALETTE] Cold desaturated gray-green and blue palette with a faint flickering fluorescent tint, the reflection distorted and fragmented by ripples and raindrops, unstable and slightly harsh.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "괴로운 기억"}, {"no": 6, "time": "0:25–0:30", "mode": "T2V", "move": "Crane up", "size": "Wide", "pal": "PRESENT", "title": "거세지는 비", "space_ko": "넓은 거리. 비가 굵어진다. 빛 속에서 빗줄기가 굵게 꽂힌다.", "light_ko": "가로등 빛무리가 빗줄기에 흩어진다. 어둡다.", "char_ko": "길 한가운데 작게 멈춰 선 뒷모습.", "action_ko": "카메라가 위로 올라가며 거세지는 비 속에 작게 서 있는 인물을 보여 준다.", "emotion": "압도됨", "sound": "굵고 무거운 빗소리가 커진다", "edit_ko": "", "camera_en": "Wide shot, slow crane up as the rain grows heavier", "space_en": "A wide night street in heavy downpour, rain hammering the asphalt, streetlight halos scattered by the rain", "light_en": "Dim cold light from streetlamps broken up by thick rain streaks", "char_en": "CHARACTER_FAR", "action_en": "The tiny figure stands still in the middle of the road as the rain grows heavier", "prompt": "[CAMERA] Wide shot, slow crane up as the rain grows heavier.\n[SPACE] A wide night street in heavy downpour, rain hammering the asphalt, streetlight halos scattered by the rain.\n[LIGHT] Dim cold light from streetlamps broken up by thick rain streaks.\n[CHARACTER] A tiny distant figure in a long charcoal-gray raincoat with the hood up, seen from behind. The face is never visible.\n[ACTION] The tiny figure stands still in the middle of the road as the rain grows heavier.\n[PALETTE] Muted blue-gray and deep teal night palette, wet asphalt, soft halos around streetlights.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "현재"}, {"no": 7, "time": "0:30–0:35", "mode": "I2V", "move": "Dolly in", "size": "Medium (뒷모습)", "pal": "PRESENT", "title": "우산 없이", "space_ko": "거센 비 속 보도.", "light_ko": "차가운 가로등 역광. 물이 후드와 어깨를 타고 흘러내린다.", "char_ko": "후드가 벗겨져 머리와 코트가 흠뻑 젖은 뒷모습.", "action_ko": "비를 그대로 맞으며 서 있다. 카메라가 뒤에서 천천히 다가간다.", "emotion": "무방비", "sound": "거센 빗소리, 가까운 숨소리", "edit_ko": "", "camera_en": "Medium shot from behind, slow dolly-in toward the person", "space_en": "A sidewalk in a heavy downpour, rain streaming down", "light_en": "Cold backlight from a streetlamp, water running off the hair and shoulders", "char_en": "CHARACTER_SOAKED", "action_en": "The person stands in the rain without moving, water streaming down", "prompt": "[CAMERA] Medium shot from behind, slow dolly-in toward the person.\n[SPACE] A sidewalk in a heavy downpour, rain streaming down.\n[LIGHT] Cold backlight from a streetlamp, water running off the hair and shoulders.\n[CHARACTER] The same anonymous adult in a long charcoal-gray raincoat, hood down, hair and coat soaked and streaming with water, seen only from behind. The face is never visible.\n[ACTION] The person stands in the rain without moving, water streaming down.\n[PALETTE] Muted blue-gray and deep teal night palette, wet asphalt, soft halos around streetlights.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "현재"}, {"no": 8, "time": "0:35–0:40", "mode": "I2V", "move": "Orbit", "size": "Close-up (손)", "pal": "GIFT", "title": "우산이 건너오는 손", "space_ko": "빗속. 프레임 오른쪽에서 낯선 이의 손이 우산을 내민다.", "light_ko": "차가운 푸른 빛 속에서 호박빛 우산 하나만 따뜻하다.", "char_ko": "낯선 이의 손·소매와 인물의 손만 보인다.", "action_ko": "낯선 이의 손이 우산을 내밀고 인물의 손이 그것을 받는다. 카메라가 두 손 주위를 약 30도 돈다.", "emotion": "뜻밖의 온기", "sound": "거센 빗소리 속에서 우산이 펴지는 소리", "edit_ko": "10번 샷의 '그릇을 건네는 손'과 같은 구도(두 손이 프레임 중앙에서 만난다)로 맞춘다.", "camera_en": "Close-up, slow orbit of about 30 degrees around the two hands", "space_en": "Heavy rain at night, a stranger's hand entering from the right side of the frame", "light_en": "Cold blue light, the amber-ochre umbrella glowing softly as the only warm object", "char_en": "HANDS_RECEIVE", "action_en": "The stranger's hand offers the umbrella and the other hand takes it", "prompt": "[CAMERA] Close-up, slow orbit of about 30 degrees around the two hands.\n[SPACE] Heavy rain at night, a stranger's hand entering from the right side of the frame.\n[LIGHT] Cold blue light, the amber-ochre umbrella glowing softly as the only warm object.\n[CHARACTER] Two hands only: a stranger's hand in a dark coat sleeve holding out a deep amber-ochre umbrella from the right, and a bare hand from a charcoal-gray raincoat sleeve reaching to take it. No faces.\n[ACTION] The stranger's hand offers the umbrella and the other hand takes it.\n[PALETTE] Cold blue-gray night palette with one deep amber-ochre umbrella as the only warm color in the frame.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "우산"}, {"no": 9, "time": "0:40–0:45", "mode": "I2V", "move": "Pan", "size": "Medium", "pal": "GIFT", "title": "우산 아래", "space_ko": "같은 거리. 우산 위로 톡톡 떨어지는 빗소리. 낯선 이는 빗속으로 멀어진다.", "light_ko": "호박빛 우산이 인물의 머리와 어깨 주위를 따뜻하게 밝힌다.", "char_ko": "우산을 든 뒷모습, 그리고 멀어지는 낯선 이의 작은 실루엣.", "action_ko": "카메라가 멀어지는 낯선 이의 실루엣에서 우산 아래의 인물로 천천히 팬한다. 인물의 어깨가 조금 펴진다.", "emotion": "안도", "sound": "우산 위로 낮고 둥글게 바뀐 빗소리", "edit_ko": "빗소리를 우산 위 소리로 교체하는 지점(사운드 전환의 중심).", "camera_en": "Medium shot, slow pan from the stranger walking away to the person under the umbrella", "space_en": "The same wet street, rain falling on the umbrella canopy, the stranger fading into the rain", "light_en": "The amber-ochre umbrella glows warmly around the head and shoulders against the cold street", "char_en": "CHARACTER_UMBRELLA", "action_en": "The stranger walks away as the person's shoulders slowly relax under the umbrella", "prompt": "[CAMERA] Medium shot, slow pan from the stranger walking away to the person under the umbrella.\n[SPACE] The same wet street, rain falling on the umbrella canopy, the stranger fading into the rain.\n[LIGHT] The amber-ochre umbrella glows warmly around the head and shoulders against the cold street.\n[CHARACTER] The same anonymous adult in a long charcoal-gray raincoat, hood down, holding a deep amber-ochre umbrella overhead, seen only from behind. The face is never visible.\n[ACTION] The stranger walks away as the person's shoulders slowly relax under the umbrella.\n[PALETTE] Cold blue-gray night palette with one deep amber-ochre umbrella as the only warm color in the frame.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "우산"}, {"no": 10, "time": "0:45–0:50", "mode": "T2V", "move": "Tilt down", "size": "Close-up (웅덩이)", "pal": "MEMORY", "title": "웅덩이 속 기억 ③ 따뜻한 식탁", "space_ko": "3번과 같은 웅덩이·같은 구도. 이번에는 반사 속에 김이 오르는 그릇 두 개가 놓인 작은 부엌 식탁, 창밖 저녁빛.", "light_ko": "따뜻한 호박빛, 안정적인 글로우.", "char_ko": "어른의 손이 작은 손에게 그릇을 건넨다(손만).", "action_ko": "카메라가 보도에서 웅덩이로 내려가면, 반사 속에서 손이 그릇을 건넨다. 파문은 잔잔하다.", "emotion": "그리움, 온기", "sound": "빗소리가 멀어지고 식기 소리·낮은 웅웅거림", "edit_ko": "5번(빈 식탁)과 같은 식탁·구도로. 8번의 '우산을 건네는 손'과 같은 구도로 손을 맞춘다.", "camera_en": "Close-up, slow tilt down from the sidewalk into the puddle, reflection filling the frame", "space_en": "The same puddle on the wet sidewalk, its reflection now showing a small kitchen table with two steaming bowls and warm evening light through a window", "light_en": "Warm amber light with a soft glow around the steam, gentle ripples", "char_en": "MEM_BOWL", "action_en": "Steam rises and the adult hand passes a bowl to the smaller hand", "prompt": "[CAMERA] Close-up, slow tilt down from the sidewalk into the puddle, reflection filling the frame.\n[SPACE] The same puddle on the wet sidewalk, its reflection now showing a small kitchen table with two steaming bowls and warm evening light through a window.\n[LIGHT] Warm amber light with a soft glow around the steam, gentle ripples.\n[CHARACTER] Only hands are visible: an adult hand passing a bowl to a smaller hand. No faces.\n[ACTION] Steam rises and the adult hand passes a bowl to the smaller hand.\n[PALETTE] Warm amber and soft gold palette, gentle stable glow, calm focus, seen in a reflection with only faint raindrop texture.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "좋은 기억"}, {"no": 11, "time": "0:50–0:55", "mode": "T2V", "move": "Lateral tracking", "size": "Medium (쇼윈도)", "pal": "MEMORY", "title": "쇼윈도 속 기억 ④ 여름 골목", "space_ko": "5번과 같은 쇼윈도·같은 이동. 유리 속에 여름 오후의 좁은 골목, 벽에 기대 세워 둔 자전거, 금빛 헤이즈.", "light_ko": "낮게 들어오는 부드러운 금빛 오후 햇살(눈부신 흰 빛은 피한다).", "char_ko": "어른과 아이가 손을 잡고 걷는 긴 그림자(멀리, 뒷모습).", "action_ko": "카메라가 쇼윈도를 따라 옆으로 이동하고, 유리 속에서 두 그림자가 손을 잡고 걷는다.", "emotion": "그때의 나", "sound": "빗소리가 거의 사라지고 부드러운 저음, 멀리 자전거 바퀴 소리", "edit_ko": "5번과 같은 카메라 이동(옆으로 이동)으로 찍어 '같은 자리, 다른 색'을 만든다.", "camera_en": "Medium shot, slow lateral tracking along the storefront window", "space_en": "The same dark storefront glass, its reflection now showing a narrow alley on a summer afternoon, a bicycle leaning against a wall, golden haze in the air", "light_en": "Low soft golden afternoon sunlight, warm and hazy, never harsh white", "char_en": "MEM_WALK", "action_en": "Two long shadows walk hand in hand down the alley in the reflection", "prompt": "[CAMERA] Medium shot, slow lateral tracking along the storefront window.\n[SPACE] The same dark storefront glass, its reflection now showing a narrow alley on a summer afternoon, a bicycle leaning against a wall, golden haze in the air.\n[LIGHT] Low soft golden afternoon sunlight, warm and hazy, never harsh white.\n[CHARACTER] Only the long shadows and silhouettes of an adult and a child walking hand in hand, seen from behind at a distance. No faces.\n[ACTION] Two long shadows walk hand in hand down the alley in the reflection.\n[PALETTE] Warm amber and soft gold palette, gentle stable glow, calm focus, seen in a reflection with only faint raindrop texture.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "좋은 기억"}, {"no": 12, "time": "0:55–1:00", "mode": "T2V", "move": "Static hold", "size": "Wide", "pal": "TURN", "title": "그치는 비", "space_ko": "넓은 거리. 웅덩이에 비친 호박빛 창들. 처마 끝에서 마지막 물방울. 우산은 접혀 있다.", "light_ko": "옅은 새벽빛과 호박빛 창.", "char_ko": "멀리 걸어가는 작은 뒷모습(접은 호박빛 우산을 들고).", "action_ko": "카메라는 움직이지 않고, 작은 인물이 옅은 빛 속으로 걸어간다. 비가 그친다.", "emotion": "고요한 결의", "sound": "빗소리가 잦아들고 새소리 한 번", "edit_ko": "제목 「비가 그치기 전까지」는 편집에서 페이드 인(생성 프롬프트에는 글자를 넣지 않는다).", "camera_en": "Wide static shot, camera completely still", "space_en": "A wide wet street at dawn, puddles reflecting warm windows, the last drops falling from an eave, the rain stopping", "light_en": "Pale dawn glow and warm amber windows reflected in the puddles", "char_en": "CHARACTER_FAR_UMBRELLA", "action_en": "The tiny figure walks toward the pale light as the rain fades", "prompt": "[CAMERA] Wide static shot, camera completely still.\n[SPACE] A wide wet street at dawn, puddles reflecting warm windows, the last drops falling from an eave, the rain stopping.\n[LIGHT] Pale dawn glow and warm amber windows reflected in the puddles.\n[CHARACTER] A tiny distant figure in a long charcoal-gray raincoat carrying a closed deep amber-ochre umbrella at the side, seen from behind. The face is never visible.\n[ACTION] The tiny figure walks toward the pale light as the rain fades.\n[PALETTE] Blue-gray night rain fading, warm amber window light and a pale dawn glow spreading over the wet street.\n[STYLE LOCK] Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look.\n[NEGATIVE] No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld.", "pal_ko": "전환"}], "locks": [["STYLE LOCK", "Cinematic realism, wet glass and rain texture, soft film grain, shallow depth of field, slow deliberate motion, quiet contemplative mood, 24fps film look."], ["CHARACTER LOCK", "An anonymous adult in a long charcoal-gray raincoat with the hood up and dark wet hair, shown only from behind, in silhouette, or as hands and feet. The face is never visible."], ["PALETTE · 현재", "Muted blue-gray and deep teal night palette, wet asphalt, soft halos around streetlights."], ["PALETTE · 괴로운 기억", "Cold desaturated gray-green and blue palette with a faint flickering fluorescent tint, the reflection distorted and fragmented by ripples and raindrops, unstable and slightly harsh."], ["PALETTE · 우산", "Cold blue-gray night palette with one deep amber-ochre umbrella as the only warm color in the frame."], ["PALETTE · 좋은 기억", "Warm amber and soft gold palette, gentle stable glow, calm focus, seen in a reflection with only faint raindrop texture."], ["PALETTE · 전환", "Blue-gray night rain fading, warm amber window light and a pale dawn glow spreading over the wet street."], ["NEGATIVE", "No text, no readable signs or signage, no logos, no subtitles, no lightning, no harsh white light, no face close-up, no fast camera motion, no shaky handheld."]], "fails": [["정면 얼굴이 나온다(낯선 이·기억 장면 포함)", "인물 묘사에 여지가 있거나 카메라가 인물 앞쪽에 놓임", "'from behind / hands only / silhouette'를 명시하고 NEGATIVE에 'face visible' 추가"], ["웅덩이·유리 반사가 반사로 읽히지 않고 그냥 다른 장면이 된다(3·5·10·11번)", "반사 관계를 모델이 이해하지 못함", "기억 장면을 따로 생성해 편집에서 스크린 블렌드로 겹친다"], ["3번과 10번(웅덩이), 5번과 11번(쇼윈도)의 구도가 서로 다르다", "각 샷을 따로 프롬프트했기 때문", "두 샷의 CAMERA·SPACE 블록을 복사해 쓰고 PALETTE 블록만 바꾼다"], ["간판·거리 글자가 생긴다", "밤 거리 묘사가 상점 간판을 유도", "배경을 'shopfronts blurred without any signage'로 제한, NEGATIVE에 'readable signage'"], ["호박빛 우산 말고 다른 곳에도 따뜻한 색이 생긴다(8·9번)", "따뜻한 색 사용 범위가 모호", "'the only warm color in the frame' 문구를 PALETTE에 유지하고 LIGHT에서 다른 따뜻한 광원을 지운다"], ["샷마다 코트·후드·우산 색이 달라진다", "샷 간 인물 정의 불일치", "CHARACTER 문구를 글자 그대로 복사, I2V는 같은 키프레임에서 시작"]]};
+const T = window.TRACKER || {updated:'', done:[], meetings:[], shotlog:[], days:[]};
+const MS = window.MILESTONES || [];
+const DAYS = T.days || [];
+const DONE = new Set(T.done || []);
+const $ = id => document.getElementById(id);
+const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+const toD = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+const fmt = d => `${d.getMonth()+1}/${d.getDate()}`;
+const today = new Date(); today.setHours(0,0,0,0);
+async function copyText(text, btn){
+  const old = btn.textContent;
+  try { await navigator.clipboard.writeText(text); } catch(e){ try{ const t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }catch(_){} }
+  btn.textContent = '복사됨'; setTimeout(() => btn.textContent = old, 1400);
+}
+
+// ===== 상태(노션 연결 여부에 따라) =====
+const API = ((window.CONFIG && window.CONFIG.API) || '').replace(/\/$/, '');
+let STATE = null, PW = '', UNLOCKED = false;
+try { PW = sessionStorage.getItem('pw') || localStorage.getItem('pw') || ''; } catch(e){}
+const msgEl = (text, kind) => { const m = $('msg'); m.textContent = text || ''; m.className = 'msg' + (kind ? ' ' + kind : ''); };
+async function api(action, body){
+  const res = await fetch(body ? API : API + '?action=' + encodeURIComponent(action), body ? { method: 'POST', body: JSON.stringify({ action, password: PW, ...body }) } : undefined);
+  let data; try { data = JSON.parse(await res.text()); } catch(e){ throw new Error('서버 응답을 읽지 못했어요. Apps Script 배포 설정(액세스 권한: 모든 사용자)과 최신 버전 배포를 확인하세요.'); }
+  if (!res.ok || data.error) throw new Error(data.error || ('오류 ' + res.status));
+  return data;
+}
+async function loadState(){
+  if (!API){ STATE = null; $('conn').textContent = '정적 모드: data/tracker.js 내용을 보여줍니다. (config.js에 Apps Script 주소를 넣으면 노션과 연결돼요)'; render(); return; }
+  try { STATE = await api('state'); $('conn').textContent = '노션과 연결됨 · 마지막 확인 ' + new Date().toLocaleTimeString('ko-KR', {hour: '2-digit', minute: '2-digit'}); }
+  catch(e){ STATE = null; $('conn').textContent = '노션에 연결하지 못해 저장된 정적 데이터를 보여줘요. (' + e.message + ')'; }
+  render();
+}
+
+// ===== 체크리스트 + 회의 기록 =====
+function allItems(){
+  const rows = STATE ? STATE.tasks : [], byKey = {}; rows.filter(r => r.key).forEach(r => byKey[r.key] = r);
+  const custom = rows.filter(r => !r.key);
+  const fixedDone = tk => tk.autoDays ? DAYS.length >= tk.autoDays : (byKey[tk.id] ? byKey[tk.id].done : DONE.has(tk.id));
+  const cards = MS.map(m => ({ m, items: [
+    ...m.tasks.map(tk => ({ kind: 'fixed', tk, m, done: fixedDone(tk), row: byKey[tk.id] })),
+    ...custom.filter(r => r.milestone === m.id).map(r => ({ kind: 'custom', tk: {id: r.id, title: r.title}, m, done: r.done, row: r, extra: r.due ? fmt(toD(r.due)) : '' })) ] }));
+  const loose = custom.filter(r => !MS.some(m => m.id === r.milestone));
+  if (loose.length) cards.push({ m: {id: 'X', title: '마일스톤 미정 할 일', due: '', note: ''}, items: loose.map(r => ({ kind: 'custom', tk: {id: r.id, title: r.title}, m: null, done: r.done, row: r, extra: r.due ? fmt(toD(r.due)) : '' })) });
+  return cards;
+}
+function render(){
+  const cards = allItems(); $('ms').textContent = '';
+  const nextC = cards.find(c => c.m.due && toD(c.m.due) >= today && c.items.some(i => !i.done));
+  $('nextUp').textContent = nextC ? `다음 마감: ${nextC.m.title} · D-${Math.round((toD(nextC.m.due) - today) / 86400000)} · 남은 ${nextC.items.filter(i => !i.done).length}개` : '남은 마감이 없어요.';
+  cards.forEach(({m, items}) => {
+    const n = items.filter(i => i.done).length, dd = m.due ? Math.round((toD(m.due) - today) / 86400000) : null;
+    const c = el('div', 'mcard' + (nextC && nextC.m.id === m.id ? ' now' : ''));
+    const top = el('div', 'top'); top.appendChild(el('h3', null, m.title)); if (dd !== null) top.appendChild(el('span', 'dday', dd > 0 ? `D-${dd}` : dd === 0 ? 'D-DAY' : `D+${-dd}`)); c.appendChild(top);
+    c.appendChild(el('div', 'cnt', `${m.due ? fmt(toD(m.due)) + ' · ' : ''}${n}/${items.length}`));
+    const bar = el('div', 'bar'); const i = el('i'); i.style.width = Math.round(n / items.length * 100) + '%'; bar.appendChild(i); c.appendChild(bar);
+    const ul = el('ul', 'reqs');
+    items.forEach(it => {
+      const li = el('li', it.done ? 'ok' : ''); const cb = el('input'); cb.type = 'checkbox'; cb.checked = it.done;
+      cb.disabled = !(UNLOCKED && STATE) || !!it.tk.autoDays; cb.setAttribute('aria-label', it.tk.title);
+      cb.addEventListener('change', () => toggle(it, cb));
+      li.appendChild(cb); li.appendChild(el('span', null, it.tk.title));
+      if (it.tk.autoDays) li.appendChild(el('span', 'extra', `${Math.min(DAYS.length, it.tk.autoDays)}/${it.tk.autoDays}`)); else if (it.extra) li.appendChild(el('span', 'extra', it.extra));
+      ul.appendChild(li);
+    });
+    c.appendChild(ul); $('ms').appendChild(c);
+  });
+  // 회의 기록
+  const list = STATE ? STATE.meetings : (T.meetings || []); $('meetings').textContent = '';
+  if (!list.length) $('meetings').appendChild(el('div', 'empty', '아직 회의 기록이 없어요.'));
+  [...list].sort((a, b) => (b.date || '').localeCompare(a.date || '')).forEach(m => {
+    const w = el('div', 'meet'); w.appendChild(el('div', 'd', m.date || ''));
+    const h = el('h3', null, m.title); if (m.kind) h.appendChild(el('span', 'kind', m.kind)); w.appendChild(h);
+    if (m.public === false) w.appendChild(el('p', 'muted', '비공개 회의'));
+    else {
+      if (m.summary) w.appendChild(el('p', null, m.summary));
+      [['결정', m.decisions], ['다음 할 일', m.actions]].forEach(([k, a]) => { if (!a || !a.length) return; w.appendChild(el('div', 'muted', k)); const ul = el('ul'); a.forEach(x => ul.appendChild(el('li', null, x))); w.appendChild(ul); });
+    }
+    $('meetings').appendChild(w);
+  });
+}
+async function toggle(it, cb){
+  const want = cb.checked; cb.disabled = true;
+  try {
+    const r = await api('toggle', it.kind === 'custom' ? { id: it.tk.id, done: want } : { key: it.tk.id, title: it.tk.title, milestone: it.m.id, done: want });
+    if (it.row) it.row.done = want; else STATE.tasks.push({ id: r.id, title: it.tk.title, milestone: it.m.id, done: want, key: it.tk.id, due: '', source: '강의계획서' });
+    render();
+  } catch(e){ cb.checked = !want; cb.disabled = false; alert(e.message); }
+}
+
+// ===== 관리자(회의록 작성) =====
+function setUnlocked(v){ UNLOCKED = v; $('mform').hidden = !v; $('lock').hidden = v; if (STATE) render(); }
+async function tryUnlock(silent){
+  try { await api('auth', {}); try { ($('remember').checked ? localStorage : sessionStorage).setItem('pw', PW); } catch(e){} setUnlocked(true); }
+  catch(e){ if (!silent) alert(e.message); setUnlocked(false); }
+}
+if (API){
+  $('admin').hidden = false; $('mDate').value = new Date().toISOString().slice(0, 10);
+  $('unlock').addEventListener('click', () => { PW = $('pw').value; tryUnlock(false); });
+  $('pw').addEventListener('keydown', e => { if (e.key === 'Enter'){ e.preventDefault(); PW = $('pw').value; tryUnlock(false); } });
+  if (PW) tryUnlock(true);
+}
+const msOpts = () => ['<option value="">마일스톤 없음</option>', ...MS.map(m => `<option value="${m.id}">${m.id} · ${m.due.slice(5)}</option>`)].join('');
+function addTaskRow(t){
+  const w = el('div', 'tk'); const cb = el('input'); cb.type = 'checkbox'; cb.checked = true; cb.className = 'tkOn';
+  const ti = el('input'); ti.type = 'text'; ti.value = t.title || ''; ti.className = 'tkTitle'; ti.maxLength = 160;
+  const sub = el('div', 'sub'); const sel = el('select'); sel.className = 'tkMs'; sel.innerHTML = msOpts(); sel.value = t.milestone || '';
+  const dt = el('input'); dt.type = 'date'; dt.className = 'tkDue'; dt.value = t.due || '';
+  sub.appendChild(sel); sub.appendChild(dt); w.appendChild(cb); w.appendChild(ti); w.appendChild(sub); $('pTasks').appendChild(w);
+}
+function meetingBody(){
+  return { title: $('mTitle').value, date: $('mDate').value, kind: $('mKind').value, public: $('mPublic').checked, text: $('mText').value };
+}
+$('btnAI').addEventListener('click', async () => {
+  const b = meetingBody(); if (b.text.trim().length < 5){ msgEl('회의 내용을 먼저 적어 주세요.', 'err'); return; }
+  $('btnAI').disabled = true; msgEl('AI가 정리하는 중… (10~30초)');
+  try {
+    const existing = allItems().flatMap(c => c.items.map(i => i.tk.title));
+    const r = await api('summarize', { text: b.text, date: b.date, milestones: MS.map(m => ({ id: m.id, title: m.title, due: m.due })), existing });
+    $('pSummary').value = r.summary; $('pDecisions').value = r.decisions.join('\n'); $('pTasks').textContent = ''; r.tasks.forEach(addTaskRow);
+    $('prev').hidden = false; msgEl('정리 완료. 확인하고 저장하세요.', 'ok');
+  } catch(e){ msgEl(e.message, 'err'); } finally { $('btnAI').disabled = false; }
+});
+async function save(withPreview){
+  const b = meetingBody(); if (!b.title.trim()){ msgEl('회의 제목을 적어 주세요.', 'err'); return; }
+  const body = { ...b };
+  if (withPreview){
+    body.summary = $('pSummary').value; body.decisions = $('pDecisions').value.split('\n').map(s => s.trim()).filter(Boolean);
+    body.tasks = [...document.querySelectorAll('#pTasks .tk')].filter(r => r.querySelector('.tkOn').checked).map(r => ({ title: r.querySelector('.tkTitle').value, milestone: r.querySelector('.tkMs').value || null, due: r.querySelector('.tkDue').value || null }));
+  }
+  $('btnSave').disabled = $('btnSave0').disabled = true; msgEl('노션에 저장하는 중…');
+  try {
+    const r = await api('meeting', body);
+    msgEl(`저장했어요. 체크리스트 항목 ${r.tasksCreated}개 추가`, 'ok');
+    $('mTitle').value = ''; $('mText').value = ''; $('prev').hidden = true; $('pTasks').textContent = '';
+    await loadState();
+  } catch(e){ msgEl(e.message, 'err'); } finally { $('btnSave').disabled = $('btnSave0').disabled = false; }
+}
+$('btnSave').addEventListener('click', () => save(true));
+$('btnSave0').addEventListener('click', () => save(false));
+loadState();
+
+// 세계관
+DATA.keywords.forEach(k => $('keywords').appendChild(el('li', null, k)));
+DATA.rules.forEach(([k, v]) => { $('rules').appendChild(el('dt', null, k)); $('rules').appendChild(el('dd', null, v)); });
+
+// 샷 리스트
+const latest = {}; (T.shotlog || []).forEach(r => latest[r.shot] = r);
+DATA.shots.forEach(s => {
+  const d = el('details', 'shot'); const sm = el('summary');
+  sm.appendChild(el('span', 'no', String(s.no).padStart(2, '0'))); sm.appendChild(el('b', null, s.title));
+  sm.appendChild(el('span', 'tag', `${s.time} · ${s.mode} · ${s.move}`));
+  const r = latest[s.no]; if (r) sm.appendChild(el('span', 'st', {adopted:'채택', failed:'실패', pending:'생성 중'}[r.result] || ''));
+  d.appendChild(sm); d.appendChild(el('p', null, s.action_ko));
+  if (s.mode === 'I2V') d.appendChild(el('p', 'muted', '이미지 기반: 같은 세계관의 키프레임 스틸에서 시작한다.'));
+  d.appendChild(el('pre', null, s.prompt));
+  const b = el('button', null, '프롬프트 복사'); b.addEventListener('click', () => copyText(s.prompt, b)); d.appendChild(b);
+  $('cards').appendChild(d);
+});
+DATA.locks.forEach(([name, text]) => { const w = el('div'); w.appendChild(el('div', 'muted', name)); w.appendChild(el('pre', null, text)); $('locks').appendChild(w); });
+
+// 실패와 수정
+const LOG = (T.shotlog || []).filter(r => r.observed || r.fix);
+if (!LOG.length) $('logBox').appendChild(el('div', 'empty', '아직 기록이 없어요. 생성이 시작되면 실패 → 원인 → 수정이 여기에 쌓입니다.'));
+else {
+  const w = el('div', 'scroll'), t = el('table'); t.innerHTML = '<thead><tr><th>샷</th><th>버전</th><th>실패</th><th>원인</th><th>수정</th><th>결과</th></tr></thead>';
+  const tb = el('tbody'); LOG.forEach(r => { const tr = el('tr'); [r.shot, r.version, r.observed, r.cause, r.fix, {adopted:'채택', failed:'실패'}[r.result] || ''].forEach(v => tr.appendChild(el('td', null, String(v ?? '')))); tb.appendChild(tr); });
+  t.appendChild(tb); w.appendChild(t); $('logBox').appendChild(w);
+}
+
+// 30 Days
+const start = new Date(2026, 8, 21), by = {}; DAYS.forEach(d => by[d.day] = d);
+$('count').textContent = `9/21 ~ 10/18 · ${DAYS.length} / 28일`;
+for (let i = 1; i <= 28; i++){
+  const dt = new Date(start); dt.setDate(start.getDate() + i - 1); const e = by[i];
+  const c = el('div', 'day' + (e ? ' done' : '')); c.appendChild(el('b', null, `D${i} · ${fmt(dt)}`));
+  if (e){ if (e.url){ const a = el('a', null, e.title || '보기'); a.href = e.url; c.appendChild(a); } else c.appendChild(el('span', null, e.title || '')); if (e.note) c.appendChild(el('div', null, e.note)); }
+  $('daysGrid').appendChild(c);
+}
+</script>
+</body>
+</html>
